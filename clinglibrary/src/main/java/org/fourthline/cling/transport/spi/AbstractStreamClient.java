@@ -14,6 +14,7 @@
  */
 package org.fourthline.cling.transport.spi;
 
+import org.fourthline.cling.DeLog;
 import org.fourthline.cling.model.message.StreamRequestMessage;
 import org.fourthline.cling.model.message.StreamResponseMessage;
 import org.seamless.util.Exceptions;
@@ -46,6 +47,7 @@ public abstract class AbstractStreamClient<C extends StreamClientConfiguration, 
             return null;
 
         Callable<StreamResponseMessage> callable = createCallable(requestMessage, request);
+        DeLog.e("_______request:   "+callable.toString());
 
         // We want to track how long it takes
         long start = System.currentTimeMillis();
